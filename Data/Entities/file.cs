@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Data.Entities
 {
-    class file
+    public class file
     {
         public int id { get; set; }
         public int userId { get; set; }
@@ -16,5 +16,6 @@ namespace Data.Entities
         /// Có được sử dụng ?
         /// </summary>
         public bool isUsed { get; set; }
+        public virtual user Users { get; set; }
     }
 }

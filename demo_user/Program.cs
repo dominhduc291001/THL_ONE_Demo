@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace demo_user
+namespace demo_user_api
 {
     public class Program
     {

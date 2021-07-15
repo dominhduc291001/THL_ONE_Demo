@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "demo_user", "demo_user\demo_user.csproj", "{FC15A0FF-8099-48DE-B281-E6998D78F7CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "demo_user_api", "demo_user\demo_user_api.csproj", "{FC15A0FF-8099-48DE-B281-E6998D78F7CE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{0044E3B9-DF6E-4064-B96A-88B0CFC5F2E5}"
 EndProject
