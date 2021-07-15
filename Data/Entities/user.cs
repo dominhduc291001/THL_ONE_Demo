@@ -13,5 +13,6 @@ namespace Data.Entities
         public string firt_name { get; set; }
         public string last_name { get; set; }    
         public string phone { get; set; }
+        public virtual ICollection<file> Files { get; set; }
     }
 }
