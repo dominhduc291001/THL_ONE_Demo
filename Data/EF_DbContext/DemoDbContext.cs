@@ -14,9 +14,13 @@ namespace Data.EF_DbContext
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Configuration Fluent Api
             modelBuilder.ApplyConfiguration(new UserConfig());
             modelBuilder.ApplyConfiguration(new FileConfig());
-            base.OnModelCreating(modelBuilder);
+
+            //Data Seeding
+            modelBuilder.Seed();
+            //base.OnModelCreating(modelBuilder);
         }
         DbSet<user> Users { get; set; }
         DbSet<file> Files { get; set; }

@@ -13,9 +13,10 @@ namespace Data.Configurations
         {
             builder.ToTable("UploadFiles");
             builder.HasKey(x => x.id);
+            builder.Property(x => x.userId).IsRequired();
             builder.Property(x => x.id).UseIdentityColumn();
             builder.Property(x => x.isUsed).IsRequired().HasDefaultValue(true);
-            builder.Property(x => x.Data)
+            builder.Property(x => x.data)
                 .HasColumnType("varbinary(MAX)")
                 .IsRequired(false);
             builder.HasOne(x => x.Users)

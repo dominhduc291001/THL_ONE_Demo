@@ -10,7 +10,7 @@ namespace Data.Entities
         public int userId { get; set; }
         public string fileName { get; set; }
         public string fileType { get; set; }
-        public Byte[] Data { get; set; }
+        public Byte[] data { get; set; }
 
         /// <summary>
         /// Có được sử dụng ?
