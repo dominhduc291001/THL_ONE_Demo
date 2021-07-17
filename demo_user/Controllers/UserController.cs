@@ -1,5 +1,6 @@
 ﻿using Application.IServices.Users;
 using Application.IServices.Users.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace demo_user_api.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
@@ -28,7 +30,7 @@ namespace demo_user_api.Controllers
                     var result = await _userService.GetAll();
                     if (result != null)
                     {
-                        return Created("", result);
+                        return Ok(result);
                     }
                 }
             }
