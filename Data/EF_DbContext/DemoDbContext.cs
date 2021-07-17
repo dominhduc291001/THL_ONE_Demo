@@ -22,7 +22,7 @@ namespace Data.EF_DbContext
             modelBuilder.Seed();
             //base.OnModelCreating(modelBuilder);
         }
-        DbSet<user> Users { get; set; }
-        DbSet<file> Files { get; set; }
+        public DbSet<user> Users { get; set; }
+        public DbSet<file> Files { get; set; }
     }
 }
