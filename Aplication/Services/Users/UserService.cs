@@ -67,6 +67,48 @@ namespace Application.Services.Users
             return result;
         }
 
+        public async Task<PaginatorUserView> GetPaginatorUser(PaginatorUserRequest request)
+        {
+            var _userAll = await _context.Users.ToListAsync();
+            var badRequest = new PaginatorUserView()
+            {
+                pageTotal = -99999
+            };
+            if(request.pageSize < 1 || request.pageNumber < 1)
+            {
+                return badRequest;
+            }
+            var result = new PaginatorUserView()
+            {
+                pageNumber = request.pageNumber,
+                pageSize = request.pageSize,
+                pageTotal = (_userAll.Count + request.pageSize - 1) / request.pageSize,
+                pageUsers = new List<UsersView>()
+            };           
+            if(result.pageNumber > result.pageTotal)
+            {
+                return badRequest;
+            }
+            List<UsersView> _usersViews = new List<UsersView>();
+            foreach (var item in _userAll)
+            {
+                var temp = new UsersView();
+                temp.id = item.id;
+                temp.username = item.username;
+                temp.password = item.password;
+                temp.phone = item.phone;
+                temp.email = item.email;
+                temp.firt_name = item.firt_name;
+                temp.last_name = item.last_name;
+                _usersViews.Add(temp);
+            };
+            for (int i=(result.pageNumber-1) * result.pageSize; i < Math.Min(result.pageNumber * result.pageSize, _usersViews.Count); ++i)
+            {
+                result.pageUsers.Add(_usersViews[i]);
+            }
+            return result;          
+        }
+
         public async Task<bool> UpdateUser(UsersView request)
         {
             user _user = await _context.Users.FindAsync(request.id);
