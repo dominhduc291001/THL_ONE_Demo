@@ -13,5 +13,6 @@ namespace Application.IServices.Users
         Task<bool> UpdateUser(UsersView request);
         Task<bool> Delete(int userId);
         Task<List<UsersView>> GetAll();
+        Task<PaginatorUserView> GetPaginatorUser(PaginatorUserRequest request);
     }
 }

@@ -41,6 +41,28 @@ namespace demo_user_api.Controllers
             return NotFound();
         }
 
+        [HttpPost("GetPaginatorUser")]
+        public async Task<IActionResult> GetPaginatorUser(PaginatorUserRequest request)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var result = await _userService.GetPaginatorUser(request);
+                    if(result.pageTotal == -99999)
+                    {
+                        return BadRequest("Paginator User not found");
+                    }
+                    return Ok(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            return NotFound();
+        }
+
         [HttpPost("CreateUser")]
 
         public async Task<IActionResult> CreateUser(UsersView request)
