@@ -17,3 +17,8 @@
 - ``` cd demo_user\ClientApp ```
 - ``` ng build ```
 - ``` ng serve ```
+#### Default Account
+``` 
+ username: admin
+ password: p@ssword 
+```
