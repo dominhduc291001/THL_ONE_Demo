@@ -113,6 +113,10 @@ namespace demo_user_api
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Swagger Demo THL ONE v1");
             });
 
+            app.UseCors(x => x.AllowAnyOrigin()
+                               .AllowAnyMethod()
+                               .AllowAnyHeader());
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
