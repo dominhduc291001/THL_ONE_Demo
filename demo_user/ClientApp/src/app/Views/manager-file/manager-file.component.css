@@ -1,3 +1,14 @@
 *{
   color: black;
 }
+.cardBox{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.create-btn{
+  background-color: darkcyan;
+  color: white;
+  margin: 10px;
+  position: relative;
+  left: 87%;
+}
