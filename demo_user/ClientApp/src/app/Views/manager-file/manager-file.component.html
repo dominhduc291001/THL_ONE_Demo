@@ -1,1 +1,30 @@
-<p>manager-file works!</p>
+<br>
+<div class="container">
+  <h2 style="text-align: center;"><b>DANH SÁCH FILE USER</b></h2>
+  <button (click)="openCreateFile()" mat-button class="create-btn" >Thêm file</button>
+  <div class="card" class = "cardBox">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Tên file</th>
+          <th scope="col">Kiểu file</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listFile">
+          <td>{{item.fileName}}</td>
+          <td>{{item.fileType}}</td>
+          <td>
+            <div class="d-flex">
+              <button type="button" class="btn btn-success"  style="color: cadetblue;" >
+                <a style="text-decoration: none" [download] = "item.fileName" [href]="linkDown(item)">Tải xuống</a>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

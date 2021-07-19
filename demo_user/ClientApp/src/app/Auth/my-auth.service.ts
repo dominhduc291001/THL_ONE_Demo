@@ -24,6 +24,7 @@ export class MyAuthService {
   }
   public removeToken(){
     localStorage.removeItem('access_token');
+    localStorage.removeItem('userId');
   }
   public getToken(){
     return localStorage.getItem('access_token');

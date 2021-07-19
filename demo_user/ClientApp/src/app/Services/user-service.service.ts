@@ -19,10 +19,10 @@ export class UserServiceService {
   private API_SERVER = "https://localhost:5001";
   constructor(private httpClient:HttpClient, private router:Router) { }
 
-  public UsersAll():Observable<user>{
+  public UsersAll():Observable<any>{
     const url = `${this.API_SERVER}/api/User/UsersAll`;
     return this.httpClient
-      .get<user>(url,this.httpOptions)
+      .get<any>(url,this.httpOptions)
       .pipe(catchError(this.handleError));
   }
 

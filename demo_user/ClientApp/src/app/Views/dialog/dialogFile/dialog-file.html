@@ -1,0 +1,12 @@
+<div class="form-container">
+  <h3 mat-dialog-title class="form-title"><b>THÊM FILE</b></h3>
+    <form  [formGroup]= "fileForm" enctype="multipart/form-data" >
+      <input formControlName = "uploadFile" type = 'file' (change)="fileChange($event)" required>
+      <br /><br />
+    </form>
+  <mat-dialog-actions>
+    <button (click) = "createFile()" mat-button class="btn-save" [mat-dialog-close]="true"  [disabled] = "!fileForm.valid" cdkFocusInitial>Thêm</button>
+    <span class="example-spacer"></span>
+    <button mat-button class="btn-cancel" mat-dialog-close >Đóng</button>
+  </mat-dialog-actions>
+<br>

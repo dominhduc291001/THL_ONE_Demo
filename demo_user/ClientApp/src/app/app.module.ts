@@ -29,6 +29,8 @@ import {MatPaginatorModule} from '@angular/material/paginator'
 import {MatDialogModule} from '@angular/material/dialog';
 import { ManagerUserComponent } from './Views/manager-user/manager-user.component';
 import { DialogUser } from './Views/dialog/dialogUser/dialog-user';
+import {MatTableModule} from '@angular/material/table';
+import { DialogFile } from './Views/dialog/dialogFile/dialog-file';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { DialogUser } from './Views/dialog/dialogUser/dialog-user';
     LoginComponent,
     DialogUser,
     ManagerUserComponent,
+    DialogFile
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,8 @@ import { DialogUser } from './Views/dialog/dialogUser/dialog-user';
     HttpClientModule,
     ReactiveFormsModule,
     MatPaginatorModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: headerInterceptor, multi: true }],
   bootstrap: [AppComponent]
