@@ -23,6 +23,9 @@ import {MatListModule} from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { LoginComponent } from './Views/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { headerInterceptor } from './Auth/headerInterceptor';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -54,8 +57,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatGridListModule,
     MatToolbarModule,
     NgbModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: headerInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

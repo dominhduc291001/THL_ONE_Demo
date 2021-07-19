@@ -1,1 +1,20 @@
-<p>login works!</p>
+<div class="login-container">
+  <div class="form-container">
+    <form [formGroup]="authForm" (ngSubmit) = "loginUser()">
+      <h1 style="text-align: center;">ĐĂNG NHẬP</h1>
+      <div *ngIf = "error === true" class="error">
+        Thông tin đăng nhập không hợp lệ !<br><br>
+      </div>
+      <div class="mb-3">
+        <label  class="form-label">Tên tài khoản</label>
+        <input formControlName = "username" type="text" class="form-control"  required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Mật khẩu</label>
+        <input formControlName = "password" type="password" class="form-control" required>
+      </div>
+      <button mat-button type="submit" id ="submitButton">ĐĂNG NHẬP</button>
+    </form>
+  </div>
+</div>
+
