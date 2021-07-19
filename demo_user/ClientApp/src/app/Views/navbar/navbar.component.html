@@ -5,7 +5,7 @@
        class="drawer-button" mat-button><i class="fas fa-users fa-lg" style="margin-right: 15px;"></i>Quản lý Users</button>
        <button (click)="sidenav.toggle()" [routerLink]="['/ManagerFile']" routerLinkActive="router-link-active"
        class="drawer-button" mat-button><i class="fas fa-file fa-lg" style="margin-right: 15px;"></i>Quản lý File</button>
-       <button (click)="sidenav.toggle()" class="drawer-button" mat-button><i class="fas fa-sign-out-alt fa-lg" style="margin-right: 15px;"></i>Đăng xuất</button>
+       <button *ngIf="checkLogin()" (click)="sidenav.toggle()" (click) = "logout()"  class="drawer-button" mat-button><i class="fas fa-sign-out-alt fa-lg" style="margin-right: 15px;"></i>Đăng xuất</button>
     </div>
   </mat-drawer>
   <mat-drawer-content>
