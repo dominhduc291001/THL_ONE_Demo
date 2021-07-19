@@ -6,6 +6,8 @@
 ``` update-database ```
 ### Khởi chạy project
 ``` dotnet run ```
+### Document API
+```https://localhost:5001/swagger/index.html```
 ## frontend
 ### Khởi tạo môi trường
 - cài nodejs
