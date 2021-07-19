@@ -1,0 +1,35 @@
+<div class="form-container">
+  <h3 mat-dialog-title class="form-title"><b>THÔNG TIN TÀI KHOẢN</b></h3>
+    <form  [formGroup]= "userForm" >
+      <p  class="laber-form">Tên tài khoản</p>
+      <input formControlName = "username" class="input-form" required>
+      <br /><br />
+
+      <p class="laber-form">Mật khẩu</p>
+      <input formControlName = "password" class="input-form" required>
+      <br /><br />
+
+      <p class="laber-form">Họ đệm</p>
+      <input formControlName = "firt_name" class="input-form" >
+      <br /><br />
+
+      <p class="laber-form">Tên</p>
+      <input formControlName = "last_name" class="input-form">
+      <br /><br />
+
+      <p class="laber-form">Email</p>
+      <input type="email" formControlName = "email" class="input-form" required>
+      <br /><br />
+
+      <p class="laber-form">Số điện thoại</p>
+      <input formControlName = "phone" class="input-form" >
+      <br /><br />
+    </form>
+  <mat-dialog-actions>
+    <button (click)="updateUser()" *ngIf="data._create === false && data._edit === true" mat-button class="btn-save" [mat-dialog-close]="true" [disabled] = "!userForm.valid" cdkFocusInitial>Lưu</button>
+    <button (click)="createUser()" *ngIf="data._create === true" mat-button class="btn-save" [mat-dialog-close]="true" [disabled] = "!userForm.valid" cdkFocusInitial>Thêm</button>
+    <span class="example-spacer"></span>
+    <button *ngIf="data._create === false && data._edit === false" mat-button class="btn-cancel" style="width:100%" mat-dialog-close >Đóng</button>
+    <button *ngIf="data._edit === true" mat-button class="btn-cancel" mat-dialog-close >Đóng</button>
+  </mat-dialog-actions>
+<br>

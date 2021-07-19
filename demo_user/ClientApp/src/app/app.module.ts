@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './Views/navbar/navbar.component';
-import { ManagerUserComponent } from './Views/manager-user/manager-user.component';
 import { ManagerFileComponent } from './Views/manager-file/manager-file.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatMenuModule} from '@angular/material/menu';
@@ -26,15 +25,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { headerInterceptor } from './Auth/headerInterceptor';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import {MatPaginatorModule} from '@angular/material/paginator'
+import {MatDialogModule} from '@angular/material/dialog';
+import { ManagerUserComponent } from './Views/manager-user/manager-user.component';
+import { DialogUser } from './Views/dialog/dialogUser/dialog-user';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ManagerUserComponent,
     ManagerFileComponent,
-    LoginComponent
+    LoginComponent,
+    DialogUser,
+    ManagerUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatToolbarModule,
     NgbModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPaginatorModule,
+    MatDialogModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: headerInterceptor, multi: true }],
   bootstrap: [AppComponent]

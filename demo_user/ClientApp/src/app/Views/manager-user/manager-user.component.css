@@ -1,3 +1,22 @@
 *{
   color: black;
 }
+.paginator-user{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 5px;
+}
+.paginator-item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.create-btn{
+  background-color: darkcyan;
+  color: white;
+  margin: 10px;
+  position: relative;
+  left: 87%;
+}

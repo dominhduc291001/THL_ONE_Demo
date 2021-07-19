@@ -1,8 +1,10 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { paginator_request } from '../Models/UserModel/paginator_request';
 import { user } from '../Models/UserModel/user';
 
 @Injectable({
@@ -15,12 +17,19 @@ export class UserServiceService {
     }),
   };
   private API_SERVER = "https://localhost:5001";
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient, private router:Router) { }
 
   public UsersAll():Observable<user>{
     const url = `${this.API_SERVER}/api/User/UsersAll`;
     return this.httpClient
       .get<user>(url,this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
+  public PaginatorUser(_pageRequest:paginator_request): Observable<any>{
+    const url = `${this.API_SERVER}/api/User/GetPaginatorUser`;
+    return this.httpClient
+      .post<paginator_request>(url,_pageRequest,this.httpOptions)
       .pipe(catchError(this.handleError));
   }
 

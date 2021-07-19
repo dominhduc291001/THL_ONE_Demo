@@ -2,7 +2,7 @@ export class paginator_request{
   public pageSize:number;
   public pageNumber:number;
   constructor(){
-    this.pageSize = 0;
-    this.pageNumber = 0;
+    this.pageSize = 5;
+    this.pageNumber = 1;
   }
 }
